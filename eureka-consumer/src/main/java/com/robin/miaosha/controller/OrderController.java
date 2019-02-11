@@ -21,7 +21,6 @@ public class OrderController {
 	@GetMapping(value = "/router/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public Order router(@PathVariable String id){
-//		springcloud redis watch 分布式锁
 		return client.miaosha(id);
 	}
 	

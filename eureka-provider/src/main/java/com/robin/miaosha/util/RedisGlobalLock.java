@@ -2,8 +2,6 @@ package com.robin.miaosha.util;
 
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -81,7 +79,7 @@ public class RedisGlobalLock {
 	    * @param key  锁Key
 	    */
 	   public void unlock(String key) {
-	      key = getPrefix(TYPE_NAME) + key;
+	      key = getKey(key);
 	      Long oldExpireTime = (Long) redisTemplate.opsForValue().get(key);
 	      if(null != oldExpireTime && oldExpireTime >= System.currentTimeMillis()) {
 	         // 大于过期时间，则删除key
@@ -98,7 +96,7 @@ public class RedisGlobalLock {
 	    * @return       是否获取到锁
 	    */
 	   private boolean getLock(String key, long timeout, long time, TimeUnit unit) {
-	      key = getPrefix(TYPE_NAME) + key;
+	      key = getKey(key);
 	      try {
 	         long startTimeMillis = System.currentTimeMillis();
 	         do {
@@ -135,7 +133,7 @@ public class RedisGlobalLock {
 	               return true;
 	            }
 	         } while (true);
-	      } catch (Exception e) {
+	      } catch (InterruptedException e) {
 	         return false;
 	      }
 	   }
@@ -145,8 +143,8 @@ public class RedisGlobalLock {
 	    * @param typeName 类名
 	    * @return 前缀
 	    */
-	   protected final String getPrefix(String typeName) {
-	      return typeName;
+	   protected final String getKey(String cypher) {
+	      return TYPE_NAME + cypher;
 	   }
 
 	}
