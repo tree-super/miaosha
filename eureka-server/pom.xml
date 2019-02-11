@@ -2,11 +2,23 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.robin</groupId>
-	<artifactId>eureka-server</artifactId>
+	<artifactId>eureka-vs</artifactId>
 	<version>0.0.1</version>
-	<name>eureka-server</name>
+	<name>eureka-vs</name>
 	<description>for Sunvalley interview</description>
-
+	<repositories>
+		<repository>
+			<id>alimaven</id>
+			<name>aliyun maven</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

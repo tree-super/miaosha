@@ -1,10 +1,40 @@
+---
 server:
-  port: 8080
+  port: 8081
 spring:
+  profiles: provider1
   application:
-    name: eureka-provider
- 
+    name: miaosha-provider
+  spring:
+    redis:
+    cluster:
+      nodes: vs4:6379,vs4:6380,vs4:6378,vs3:6381,vs3:6382,vs3:6383
+      timeout: 2000
+      max-redirects: 7
 eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5 #dev
+    leaseExpirationDurationInSeconds: 10
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://vs1:8761/eureka,http://vs2:8762/eureka
+
+---
+server:
+  port: 8082
+spring:
+  profiles: provider2
+  application:
+    name: miaosha-provider
+ 
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 10
+  client:
+    serviceUrl:
+      defaultZone: http://vs1:8761/eureka,http://vs2:8762/eureka
+
+logging:
+  level:
+    com.netflix: DEBUG

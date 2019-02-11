@@ -1,11 +1,24 @@
+---
 server:
-  port: 8081
+  port: 8090
  
 spring:
   application:
-    name: eureka-consumer
- 
+    name: miaosha-consumer
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://vs1:8761/eureka,http://vs2:8762/eureka
+    
+default:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+feign:
+  hystrix:
+    enabled: true
+    
+logging:
+  level:
+    com.netflix: DEBUG
+
+    

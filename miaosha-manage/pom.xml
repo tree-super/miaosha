@@ -8,9 +8,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.robin.miaosha</groupId>
-	<artifactId>miaosha-manage</artifactId>
+	<artifactId>miaosha-back</artifactId>
 	<version>0.0.1</version>
-	<name>miaosha</name>
+	<name>miaosha-back</name>
 	<packaging>pom</packaging>
 	<description>
 		for Sunvalley interview
