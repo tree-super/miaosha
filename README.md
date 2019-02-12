@@ -14,4 +14,4 @@ miaosha scene
 
 ### 待续
 - 待完善一个循环等待的锁，对商品最大编号加锁，以保证库存并发添加
-- `miaosha-test.jmx` 需要更多线程测试
+- `miaosha-test.jmx` jmeter需要更多线程测试
