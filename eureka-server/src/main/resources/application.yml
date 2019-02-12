@@ -16,12 +16,12 @@ eureka:
     fetchRegistry: false
     defaultZone: http://vs2:8762/eureka/
   server:
-    enable-self-preservation: false
-    eviction-interval-timer-in-ms: 8000
+    enable-self-preservation: true
+    eviction-interval-timer-in-ms: 800000
     
-logging:
-  level:
-    com.netflix: DEBUG
+#logging:
+#  level:
+#    com.netflix: DEBUG
     
 ---
 server:
@@ -41,10 +41,10 @@ eureka:
     fetchRegistry: false
     defaultZone: http://vs1:8761/eureka/
   server:
-    enable-self-preservation: false
-    eviction-interval-timer-in-ms: 8000 #dev
+    enable-self-preservation: true
+    eviction-interval-timer-in-ms: 800000 #dev
     
-logging:
-  level:
-    com.netflix: DEBUG
+#logging:
+#  level:
+#    com.netflix: DEBUG
    

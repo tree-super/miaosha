@@ -22,8 +22,8 @@ feign:
   hystrix:
     enabled: true
     
-logging:
-  level:
-    com.netflix: DEBUG
+#logging:
+#  level:
+#    com.netflix: DEBUG
 
     

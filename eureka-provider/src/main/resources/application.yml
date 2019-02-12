@@ -5,20 +5,22 @@ spring:
   profiles: provider1
   application:
     name: miaosha-provider
-  spring:
-    redis:
-    cluster:
-      nodes: vs4:6379,vs4:6380,vs4:6378,vs3:6381,vs3:6382,vs3:6383
-      timeout: 2000
-      max-redirects: 7
+  redis:
+    single： 127.0.0.1:6379
+#    cluster:
+#      nodes: vs4:6379,vs4:6380,vs4:6378,vs3:6381,vs3:6382,vs3:6383
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 5 #dev
-    leaseExpirationDurationInSeconds: 10
+    leaseRenewalIntervalInSeconds: 500 #dev
+    leaseExpirationDurationInSeconds: 1000
   client:
     serviceUrl:
       defaultZone: http://vs1:8761/eureka,http://vs2:8762/eureka
 
+#logging:
+#  level:
+#    com.netflix: DEBUG
+    
 ---
 server:
   port: 8082
@@ -26,15 +28,16 @@ spring:
   profiles: provider2
   application:
     name: miaosha-provider
- 
+  redis:
+    single： 127.0.0.1:6379
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 5
-    leaseExpirationDurationInSeconds: 10
+    leaseRenewalIntervalInSeconds: 500
+    leaseExpirationDurationInSeconds: 1000
   client:
     serviceUrl:
       defaultZone: http://vs1:8761/eureka,http://vs2:8762/eureka
 
-logging:
-  level:
-    com.netflix: DEBUG
+#logging:
+#  level:
+#    com.netflix: DEBUG
