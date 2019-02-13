@@ -8,8 +8,8 @@ miaosha scene
 - 添加100个库存`http://vs1:8081/stock/add`
 
 
-- 查看服务的运行以及均衡策略`http://127.0.0.1:8090/ribbon/see/1`
-- 秒杀核心方法`http://127.0.0.1:8090/miaosha`
+- 查看服务的运行以及均衡策略`http://vs2:8090/ribbon/see/1`
+- 秒杀核心方法`http://vs2:8090/miaosha`
 
 
 ### 待续
